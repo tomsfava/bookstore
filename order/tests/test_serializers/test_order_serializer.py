@@ -12,7 +12,7 @@ def test_order_serializer_valid_data():
 
     data = {
         "user": user.id,
-        "product_id": [product1.id, product2.id],
+        "products": [product1.id, product2.id],
     }
 
     serializer = OrderSerializer(data=data)
