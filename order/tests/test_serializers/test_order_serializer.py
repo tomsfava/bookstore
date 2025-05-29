@@ -12,7 +12,7 @@ def test_order_serializer_valid_data():
 
     data = {
         "user": user.id,
-        "product": [product1.id, product2.id],
+        "product_id": [product1.id, product2.id],
     }
 
     serializer = OrderSerializer(data=data)
@@ -25,5 +25,5 @@ def test_order_serializer_valid_data():
 
     assert serializer.data["total"] == 50.00
 
-    returned_product_ids = {p["id"] for p in serializer.data["products"]}
+    returned_product_ids = {p["id"] for p in serializer.data["product"]}
     assert returned_product_ids == {product1.id, product2.id}
