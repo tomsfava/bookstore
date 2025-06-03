@@ -10,6 +10,8 @@ jobs:
         python-version: [3.12]
 
     runs-on: ubuntu-latest
+    env:
+      DJANGO_ALLOWED_HOSTS: "127.0.0.1 localhost"
 
     steps:
     - uses: actions/checkout@v2
