@@ -361,5 +361,5 @@ markers = {main = "sys_platform == \"win32\""}
 
 [metadata]
 lock-version = "2.1"
-python-versions = ">=3.13"
-content-hash = "1c77a8e3c43eb323d2550b1d01a71e5288c19881bf0562609706b85ab57b5b5d"
+python-versions = ">=3.12"
+content-hash = "1ec7ef419cda9d229f80b6f58bad4ff807ffac72aa01067a408ed02514a3b8a3"
