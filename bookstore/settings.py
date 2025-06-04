@@ -152,5 +152,5 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "foo")
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'tomsf-bookstore-api-d71ea6a108db.herokuapp.com/' ]
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'tomsf-bookstore-api-d71ea6a108db.herokuapp.com' ]
 
