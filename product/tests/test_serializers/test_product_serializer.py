@@ -1,7 +1,8 @@
 import pytest
 
 from product.serializers import ProductSerializer
-from product.tests import ProductFactory
+from product.factories import ProductFactory
+
 
 @pytest.mark.django_db
 def test_product_serializer_output():

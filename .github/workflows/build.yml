@@ -1,0 +1,60 @@
+name: Python application
+
+on: [push]
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: [3.12]
+
+    runs-on: ubuntu-latest
+    services:
+      db:
+        image: postgres:15
+        env:
+          POSTGRES_DB: bookstore_dev_db
+          POSTGRES_USER: bookstore_dev
+          POSTGRES_PASSWORD: bookstore_dev
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd="pg_isready"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Export env.dev to GitHub ENV
+      run: |
+        grep -v '^#' env.dev | while IFS= read -r line; do
+          if [[ "$line" == *=* ]]; then
+            echo "$line" >> "$GITHUB_ENV"
+          fi
+        done
+
+    - name: Install poetry
+      run: |
+        python -m ensurepip
+        python -m pip install --upgrade pip
+        python -m pip install --upgrade poetry
+
+    - name: Install dependencies
+      run: python -m poetry install
+    - name: Debug network and env
+      run: |
+        echo "Testing ping to db..."
+        apt-get update && apt-get install -y iputils-ping
+        ping -c 3 db || echo "Ping to db failed"
+        echo "Env vars:"
+        env
+    - name: Test
+      run: poetry run python manage.py test

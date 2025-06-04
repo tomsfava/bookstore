@@ -1,8 +1,9 @@
 import pytest
 
 from order.serializers import OrderSerializer
-from order.tests import UserFactory
-from product.tests import ProductFactory
+from order.factories import UserFactory
+from product.factories import ProductFactory
+
 
 @pytest.mark.django_db
 def test_order_serializer_valid_data():

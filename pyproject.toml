@@ -6,12 +6,16 @@ authors = [
     {name = "Tomás Fava",email = "tomsfava@gmail.com"}
 ]
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.12"
 dependencies = [
     "pytest (>=8.3.5,<9.0.0)",
     "django (>=5.2.1,<6.0.0)",
     "djangorestframework (>=3.16.0,<4.0.0)",
-    "django-extensions (>=4.1,<5.0)"
+    "django-extensions (>=4.1,<5.0)",
+    "django-debug-toolbar (>=5.2.0,<6.0.0)",
+    "psycopg2 (>=2.9.10,<3.0.0)",
+    "whitenoise (>=6.9.0,<7.0.0)",
+    "gunicorn (>=23.0.0,<24.0.0)",
 ]
 
 [tool.poetry]
@@ -19,6 +23,8 @@ dependencies = [
 [tool.poetry.group.dev.dependencies]
 factory-boy = "^3.3.3"
 pytest-django = "^4.11.1"
+black = "^25.1.0"
+bandit = "1.7.4"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
