@@ -154,3 +154,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'tomsf-bookstore-api-d71ea6a108db.herokuapp.com' ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://tomsf-bookstore-api-d71ea6a108db.herokuapp.com"
+]
