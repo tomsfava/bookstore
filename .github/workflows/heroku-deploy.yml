@@ -30,6 +30,11 @@ jobs:
       - name: Add Heroku remote
         run: git remote add heroku https://git.heroku.com/${{ secrets.HEROKU_APP_NAME }}.git
 
+      - name: Set up Git identity
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
       - name: Pull from Heroku before pushing
         run: |
           git pull --rebase heroku main
