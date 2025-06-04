@@ -49,6 +49,12 @@ jobs:
 
     - name: Install dependencies
       run: python -m poetry install
-
+    - name: Debug network and env
+      run: |
+        echo "Testing ping to db..."
+        apt-get update && apt-get install -y iputils-ping
+        ping -c 3 db || echo "Ping to db failed"
+        echo "Env vars:"
+        env
     - name: Test
       run: poetry run python manage.py test
