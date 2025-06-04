@@ -34,5 +34,6 @@ jobs:
         continue-on-error: true
         with:
           reporter: 'github-pr-review'
+          args: '--ignore=Q000'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
