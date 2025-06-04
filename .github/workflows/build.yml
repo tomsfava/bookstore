@@ -24,6 +24,7 @@ jobs:
         set -a
         source env.dev
         set +a
+        cat env.dev >> $GITHUB_ENV
 
     - name: Install poetry
       run: |
