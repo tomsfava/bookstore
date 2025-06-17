@@ -57,4 +57,4 @@ jobs:
         echo "Env vars:"
         env
     - name: Test
-      run: poetry run python manage.py test
+      run: poetry run pytest
