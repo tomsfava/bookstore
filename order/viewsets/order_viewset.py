@@ -18,5 +18,4 @@ class OrderViewSet(ModelViewSet):
         BasicAuthentication,
         TokenAuthentication,
     )
-    permission_classes = [IsAuthenticated]
     queryset = Order.objects.all().order_by('id')
